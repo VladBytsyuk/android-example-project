@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.android.ui.notifications
+package io.vbytsyuk.example.android.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import io.vbytsyuk.example.android.databinding.FragmentNotificationsBinding
+import io.vbytsyuk.example.android.databinding.FragmentCharactersBinding
 import io.vbytsyuk.example.android.ui.BindingFragment
 
-class NotificationsFragment : BindingFragment<FragmentNotificationsBinding>() {
+class CharactersFragment : BindingFragment<FragmentCharactersBinding>() {
 
-    private val notificationsViewModel: NotificationsViewModel by viewModels()
+    private val charactersViewModel: CharactersViewModel by viewModels()
 
     override fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?, attachToParent: Boolean) =
-        FragmentNotificationsBinding.inflate(inflater, container, attachToParent)
+        FragmentCharactersBinding.inflate(inflater, container, attachToParent)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +23,8 @@ class NotificationsFragment : BindingFragment<FragmentNotificationsBinding>() {
     ): View {
         val root = super.onCreateView(inflater, container, savedInstanceState)
         bind { binding ->
-            val textView: TextView = binding.textNotifications
-            notificationsViewModel.text.observe(viewLifecycleOwner, { textView.text = it })
+            val textView: TextView = binding.textCharacters
+            charactersViewModel.text.observe(viewLifecycleOwner, { textView.text = it })
         }
         return root
     }
