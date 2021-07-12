@@ -1,13 +1,13 @@
-package io.vbytsyuk.example.android.ui.notifications
+package io.vbytsyuk.example.android.ui.characters
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class EpisodesViewModel : ViewModel() {
+class CharactersViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is episodes Fragment"
+        value = "This is characters Fragment"
     }
     val text: LiveData<String> = _text
 }
