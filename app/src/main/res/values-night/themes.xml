@@ -1,16 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AndroidExampleProject.Launcher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/img_window_background_night</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/night_on_primary</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="Theme.AndroidExampleProject" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/night_primary</item>
+        <item name="colorPrimaryVariant">@color/night_primary_variant</item>
+        <item name="colorOnPrimary">@color/night_on_primary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant</item>
+        <item name="colorOnSecondary">@color/night_on_primary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/night_on_primary</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

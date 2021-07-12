@@ -1,4 +1,5 @@
 <resources>
+    <string name="splash_screen">Rick &amp; Morty app</string>
     <string name="app_name">Android Example Project</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
