@@ -3,7 +3,15 @@ package io.vbytsyuk.example.log
 import android.util.Log
 import io.vbytsyuk.example.core.Logger
 
-class AndroidLogger(override val tag: String) : Logger {
+class AndroidLogger : Logger {
+    override val tag: String get() = Throwable()
+        .stackTrace
+        .mapNotNull { it.fileName }
+        .dropWhile { it in listOf("${this::class.simpleName}.kt", "${AndroidLogger::class.simpleName}.kt") }
+        .firstOrNull()
+        ?.removeSuffix(".kt")
+        ?.removeSuffix(".java")
+        ?: "∀"
 
     override fun v(tag: String, message: String) {
         Log.v(tag, message)

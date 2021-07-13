@@ -1,0 +1,40 @@
+package io.vbytsyuk.example.episodes
+
+import io.vbytsyuk.example.core.di.DiModule
+import io.vbytsyuk.example.core.domain.Character
+import io.vbytsyuk.example.core.domain.Episode
+import io.vbytsyuk.example.core.repository.Repository
+import io.vbytsyuk.example.core.repository.domain.EpisodesRepository
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.Module
+import org.koin.dsl.module
+
+class EpisodesDiModule(dependencies: Dependencies) :
+    DiModule<EpisodesDiModule.Dependencies, EpisodesDiModule.Api>(dependencies) {
+
+    interface Dependencies : DiModule.Dependencies {
+        val charactersRepository: EpisodesRepository
+    }
+
+    interface Api : DiModule.Api {
+        val episodesListViewModel: EpisodesListViewModel
+    }
+
+    override val api: Api = object : Api {
+        override val episodesListViewModel: EpisodesListViewModel =
+            EpisodesListViewModel(dependencies.charactersRepository)
+    }
+
+    companion object {
+        val koinModule: Module = module {
+            single {
+                EpisodesDiModule(
+                    dependencies = object : Dependencies {
+                        override val charactersRepository: EpisodesRepository = get()
+                    }
+                )
+            }
+            viewModel { get<EpisodesDiModule>().api.episodesListViewModel }
+        }
+    }
+}

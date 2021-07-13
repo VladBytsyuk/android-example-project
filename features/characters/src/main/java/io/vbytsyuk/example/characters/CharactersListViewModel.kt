@@ -1,9 +1,7 @@
 package io.vbytsyuk.example.characters
 
 import io.vbytsyuk.example.core.ListViewModel
-import io.vbytsyuk.example.core.MockRepository
 import io.vbytsyuk.example.core.domain.Character
+import io.vbytsyuk.example.core.repository.Repository
 
-class CharactersListViewModel : ListViewModel<Character>(
-    repository = MockRepository(value = emptyList())
-)
+class CharactersListViewModel(repository: Repository<List<Character>>) : ListViewModel<Character>(repository)

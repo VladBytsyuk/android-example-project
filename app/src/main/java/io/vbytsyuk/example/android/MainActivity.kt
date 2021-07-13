@@ -11,7 +11,8 @@ import io.vbytsyuk.example.android.databinding.ActivityMainBinding
 
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
-    override fun inflateBinding(inflater: LayoutInflater) = ActivityMainBinding.inflate(inflater)
+    override fun inflateBinding(inflater: LayoutInflater) =
+        ActivityMainBinding.inflate(inflater)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
