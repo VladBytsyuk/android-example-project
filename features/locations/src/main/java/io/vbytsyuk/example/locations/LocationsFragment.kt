@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.android.ui.episodes
+package io.vbytsyuk.example.locations
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import io.vbytsyuk.example.android.databinding.FragmentEpisodesBinding
-import io.vbytsyuk.example.android.ui.BindingFragment
+import io.vbytsyuk.example.core.BindingFragment
+import io.vbytsyuk.example.locations.databinding.FragmentLocationsBinding
 
-class EpisodesFragment : BindingFragment<FragmentEpisodesBinding>() {
+class LocationsFragment : BindingFragment<FragmentLocationsBinding>() {
 
-    private val episodesViewModel: EpisodesViewModel by viewModels()
+    private val locationsViewModel: LocationsViewModel by viewModels()
 
     override fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?, attachToParent: Boolean) =
-        FragmentEpisodesBinding.inflate(inflater, container, attachToParent)
+        FragmentLocationsBinding.inflate(inflater, container, false)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +23,8 @@ class EpisodesFragment : BindingFragment<FragmentEpisodesBinding>() {
     ): View {
         val root = super.onCreateView(inflater, container, savedInstanceState)
         bind { binding ->
-            val textView: TextView = binding.textEpisodes
-            episodesViewModel.text.observe(viewLifecycleOwner, { textView.text = it })
+            val textView: TextView = binding.textLocations
+            locationsViewModel.text.observe(viewLifecycleOwner, { textView.text = it })
         }
         return root
     }

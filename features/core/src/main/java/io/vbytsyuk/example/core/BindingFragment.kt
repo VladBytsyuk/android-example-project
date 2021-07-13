@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.android.ui
+package io.vbytsyuk.example.core
 
 import android.os.Bundle
 import android.util.Log
