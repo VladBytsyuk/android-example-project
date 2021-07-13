@@ -4,8 +4,8 @@ import androidx.fragment.app.viewModels
 import io.vbytsyuk.example.core.ListFragment
 import io.vbytsyuk.example.core.domain.Character
 
-class CharactersFragment : ListFragment<Character>() {
+class CharactersFragment : ListFragment<Character, CharactersViewModel>() {
 
-    private val charactersViewModel: CharactersViewModel by viewModels()
+    override val viewModel: CharactersViewModel by viewModels()
 
 }

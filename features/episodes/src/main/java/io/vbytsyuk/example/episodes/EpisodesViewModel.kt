@@ -1,13 +1,9 @@
 package io.vbytsyuk.example.episodes
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import io.vbytsyuk.example.core.ListViewModel
+import io.vbytsyuk.example.core.MockRepository
+import io.vbytsyuk.example.core.domain.Episode
 
-class EpisodesViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is episodes Fragment"
-    }
-    val text: LiveData<String> = _text
-}
+class EpisodesViewModel : ListViewModel<Episode>(
+    repository = MockRepository(value = emptyList())
+)

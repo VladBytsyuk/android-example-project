@@ -1,13 +1,9 @@
 package io.vbytsyuk.example.characters
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import io.vbytsyuk.example.core.ListViewModel
+import io.vbytsyuk.example.core.MockRepository
+import io.vbytsyuk.example.core.domain.Character
 
-class CharactersViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is characters Fragment"
-    }
-    val text: LiveData<String> = _text
-}
+class CharactersViewModel : ListViewModel<Character>(
+    repository = MockRepository(value = emptyList())
+)
