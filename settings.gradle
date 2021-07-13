@@ -1,3 +1,4 @@
 rootProject.name = "Android Example Project"
 include ':app'
 include ':domain'
+include ':core'
