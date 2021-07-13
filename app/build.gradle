@@ -37,6 +37,9 @@ android {
 
 dependencies {
     implementation project(":domain")
+    implementation project(":features:locations")
+    implementation project(":features:characters")
+    implementation project(":features:episodes")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
