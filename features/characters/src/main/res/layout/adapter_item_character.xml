@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageView android:id="@+id/ivAvatar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:srcCompat="@drawable/img_empty"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Thrall"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/flowView"
+        app:layout_constraintTop_toTopOf="@+id/flowView"
+        app:layout_constraintBottom_toBottomOf="@+id/flowView"
+        tools:text="Orc"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tvSpecies"
+        app:layout_constraintTop_toTopOf="@+id/flowView"
+        app:layout_constraintBottom_toBottomOf="@+id/flowView"
+        tools:text="Alive"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tvStatus"
+        app:layout_constraintTop_toTopOf="@+id/flowView"
+        app:layout_constraintBottom_toBottomOf="@+id/flowView"
+        tools:text="Male"
+        />
+
+    <androidx.constraintlayout.helper.widget.Flow android:id="@+id/flowView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:flow_horizontalGap="8dp"
+        app:flow_horizontalStyle="packed"
+        app:flow_horizontalBias="0.0"
+        app:flow_verticalGap="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:constraint_referenced_ids="tvSpecies, tvStatus, tvGender"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

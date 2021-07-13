@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import io.vbytsyuk.example.core.domain.Item
 import io.vbytsyuk.example.core.ext.collectToLiveData
 import io.vbytsyuk.example.core.repository.Repository
 import kotlinx.coroutines.launch
 
-abstract class ListViewModel<T>(
+abstract class ListViewModel<T : Item>(
     private val repository: Repository<List<T>>
 ) : ViewModel() {
 

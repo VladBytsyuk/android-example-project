@@ -9,7 +9,7 @@ class LocationsListViewModel : ListViewModel<Location>(
         value = listOf(
             Location(id = 1, name = "Home", type = "Building", dimension = "Earth"),
             Location(id = 2, name = "Work", type = "Building", dimension = "Earth"),
-            Location(id = 3, name = "Diagon alley", type = "Park", dimension = "Harry Potter universe"),
+            Location(id = 3, name = "Diagon alley", type = "Street", dimension = "Harry Potter universe"),
             Location(id = 4, name = "Tavern", type = "Building", dimension = "Earth"),
             Location(id = 5, name = "Goldshire", type = "Town", dimension = "Azeroth"),
             Location(id = 6, name = "Blackrock", type = "Rock", dimension = "Azeroth"),
