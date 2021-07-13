@@ -9,7 +9,7 @@ import io.vbytsyuk.example.core.ext.visible
 
 abstract class ListFragment<T, VM : ListViewModel<T>> : BindingFragment<FragmentListBinding>() {
 
-    abstract val viewModel: VM
+    abstract val listViewModel: VM
 
     override fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?, attachToParent: Boolean) =
         FragmentListBinding.inflate(inflater, container, attachToParent)
@@ -20,8 +20,8 @@ abstract class ListFragment<T, VM : ListViewModel<T>> : BindingFragment<Fragment
         savedInstanceState: Bundle?
     ): View {
         val root = super.onCreateView(inflater, container, savedInstanceState)
-        viewModel.list.observe(viewLifecycleOwner, ::showList)
-        viewModel.updateList()
+        listViewModel.list.observe(viewLifecycleOwner, ::showList)
+        listViewModel.updateList()
         return root
     }
 

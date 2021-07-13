@@ -1,9 +1,9 @@
-package io.vbytsyuk.example.episodes
+package io.vbytsyuk.example.locations
 
 import io.vbytsyuk.example.core.ListViewModel
 import io.vbytsyuk.example.core.MockRepository
-import io.vbytsyuk.example.core.domain.Episode
+import io.vbytsyuk.example.core.domain.Location
 
-class EpisodesViewModel : ListViewModel<Episode>(
+class LocationsListViewModel : ListViewModel<Location>(
     repository = MockRepository(value = emptyList())
 )

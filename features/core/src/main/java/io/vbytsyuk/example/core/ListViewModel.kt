@@ -19,7 +19,8 @@ abstract class ListViewModel<T>(
 
     fun updateList() {
         viewModelScope.launch {
-            repository.dataFlow().collectToLiveData(_list)
+            repository.dataFlow()
+                .collectToLiveData(_list)
         }
     }
 }
