@@ -7,5 +7,6 @@ interface Logger {
     fun d(tag: String = this.tag, message: String)
     fun w(tag: String = this.tag, message: String)
     fun e(tag: String = this.tag, message: String)
+    fun e(tag: String = this.tag, throwable: Throwable)
     fun f(tag: String = this.tag, message: String)
 }

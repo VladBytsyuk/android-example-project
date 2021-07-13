@@ -32,6 +32,10 @@ fun <T> MockRepository(value: T) = RepositoryImpl<T>(
             Log.e(tag, message)
         }
 
+        override fun e(tag: String, throwable: Throwable) {
+            Log.e(tag, null, throwable)
+        }
+
         override fun f(tag: String, message: String) {
             Log.wtf(tag, message)
         }
