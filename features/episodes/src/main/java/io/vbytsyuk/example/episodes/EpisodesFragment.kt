@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import io.vbytsyuk.example.core.BindingFragment
+import io.vbytsyuk.example.core.ListBindingFragment
+import io.vbytsyuk.example.core.domain.Episode
 import io.vbytsyuk.example.episodes.databinding.FragmentEpisodesBinding
 
-class EpisodesFragment : BindingFragment<FragmentEpisodesBinding>() {
+class EpisodesFragment : ListBindingFragment<Episode, FragmentEpisodesBinding>() {
 
     private val episodesViewModel: EpisodesViewModel by viewModels()
 

@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import io.vbytsyuk.example.characters.databinding.FragmentCharactersBinding
-import io.vbytsyuk.example.core.BindingFragment
+import io.vbytsyuk.example.core.ListBindingFragment
+import io.vbytsyuk.example.core.domain.Character
 
-class CharactersFragment : BindingFragment<FragmentCharactersBinding>() {
+class CharactersFragment : ListBindingFragment<Character, FragmentCharactersBinding>() {
 
     private val charactersViewModel: CharactersViewModel by viewModels()
 

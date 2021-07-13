@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import io.vbytsyuk.example.core.BindingFragment
+import io.vbytsyuk.example.core.ListBindingFragment
+import io.vbytsyuk.example.core.domain.Location
 import io.vbytsyuk.example.locations.databinding.FragmentLocationsBinding
 
-class LocationsFragment : BindingFragment<FragmentLocationsBinding>() {
+class LocationsFragment : ListBindingFragment<Location, FragmentLocationsBinding>() {
 
     private val locationsViewModel: LocationsViewModel by viewModels()
 
