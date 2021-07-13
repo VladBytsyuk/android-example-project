@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.domain
+package io.vbytsyuk.example.core.domain
 
 data class Episode(
     val id: Int,
