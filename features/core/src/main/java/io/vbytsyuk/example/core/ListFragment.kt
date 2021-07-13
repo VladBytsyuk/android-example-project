@@ -21,12 +21,18 @@ abstract class ListFragment<T, VM : ListViewModel<T>> : BindingFragment<Fragment
     ): View {
         val root = super.onCreateView(inflater, container, savedInstanceState)
         listViewModel.list.observe(viewLifecycleOwner, ::showList)
+        setPullToRefreshListener()
         listViewModel.updateList()
         return root
     }
 
     private fun showList(list: List<T>) = bind { binding ->
+        binding.swipeRefreshLayout.isRefreshing = false
         binding.groupEmpty.visible = list.isEmpty()
         binding.recyclerView.visible = list.isNotEmpty()
+    }
+
+    private fun setPullToRefreshListener() = bind { binding ->
+        binding.swipeRefreshLayout.setOnRefreshListener(listViewModel::updateList)
     }
 }

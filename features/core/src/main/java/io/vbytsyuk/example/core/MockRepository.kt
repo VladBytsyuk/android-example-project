@@ -5,6 +5,7 @@ import io.vbytsyuk.example.core.api.ApiProvider
 import io.vbytsyuk.example.core.api.ApiResult
 import io.vbytsyuk.example.core.database.Database
 import io.vbytsyuk.example.core.repository.RepositoryImpl
+import kotlinx.coroutines.delay
 
 fun <T> MockRepository(value: T) = RepositoryImpl<T>(
     logger = object : Logger {
@@ -36,10 +37,16 @@ fun <T> MockRepository(value: T) = RepositoryImpl<T>(
         }
     },
     database = object : Database<T> {
-        override suspend fun loadData(): T = value
+        override suspend fun loadData(): T {
+            delay(200)
+            return value
+        }
         override suspend fun saveData(data: T) = Unit
     },
     apiProvider = object : ApiProvider<T> {
-        override suspend fun fetchData(): ApiResult<T> = ApiResult.Success<T>(value)
+        override suspend fun fetchData(): ApiResult<T> {
+            delay(500)
+            return ApiResult.Success(value)
+        }
     }
 )
