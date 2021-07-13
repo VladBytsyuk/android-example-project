@@ -12,7 +12,7 @@ class RepositoryImpl<T>(
     private val database: Database<T>,
     private val apiProvider: ApiProvider<T>,
 ) : Repository<T> {
-    override fun getData(): Flow<T> = flow {
+    override fun dataFlow(): Flow<T> = flow {
         val databaseData = database.loadData()
         emit(databaseData)
         logger.v(message = "Database data emitted.")
