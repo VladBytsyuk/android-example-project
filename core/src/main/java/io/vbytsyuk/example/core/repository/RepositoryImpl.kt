@@ -6,6 +6,7 @@ import io.vbytsyuk.example.core.api.ApiResult
 import io.vbytsyuk.example.core.database.Database
 import io.vbytsyuk.example.core.domain.list.ListData
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 
 class RepositoryImpl<out T>(
@@ -15,12 +16,36 @@ class RepositoryImpl<out T>(
 ) : Repository<T> {
     private var lastLoadedPage: Int = 0
 
+    override suspend fun clearState() {
+        lastLoadedPage = 0
+        database.clear()
+        logger.v(message = "Database cleared.")
+    }
+
     override fun dataFlow(count: Int): Flow<List<T>> = flow {
-        if (lastLoadedPage == 0) {
-            val databaseData = database.loadData()
-            emit(databaseData)
-            logger.v(message = "Database data [${databaseData.size} items] emitted.")
+        if (isFirstLoad) {
+            val hasDatabaseCache = loadDatabaseList()
+            if (hasDatabaseCache) return@flow
         }
+        fetchApiList()
+    }
+
+    private val isFirstLoad: Boolean get() = lastLoadedPage == 0
+
+    private suspend fun FlowCollector<List<T>>.loadDatabaseList(): Boolean {
+        val databaseData = database.loadData()
+        emit(databaseData)
+        logger.v(message = "Database data [${databaseData.size} items] emitted.")
+        setUpLastLoadedPage(databaseData)
+        return lastLoadedPage != 0
+    }
+
+    private fun setUpLastLoadedPage(list: List<T>) {
+        lastLoadedPage = list.size / 20
+        if (list.size % 20 != 0) lastLoadedPage++
+    }
+
+    private suspend fun FlowCollector<List<T>>.fetchApiList() =
         when (val apiData = apiProvider.fetchData(lastLoadedPage + 1)) {
             is ApiResult.Success -> {
                 lastLoadedPage += 1
@@ -38,9 +63,4 @@ class RepositoryImpl<out T>(
                 logger.e(message = "Request failure. [${apiData.throwable.message}]")
             }
         }
-    }
-
-    override fun clearState() {
-        lastLoadedPage = 0
-    }
 }

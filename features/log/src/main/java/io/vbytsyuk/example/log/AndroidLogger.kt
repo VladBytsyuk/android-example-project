@@ -7,7 +7,7 @@ class AndroidLogger : Logger {
     override val tag: String get() = Throwable()
         .stackTrace
         .mapNotNull { it.fileName }
-        .dropWhile { it in listOf("${this::class.simpleName}.kt", "${AndroidLogger::class.simpleName}.kt") }
+        .dropWhile { it in listOf("${this::class.simpleName}.kt", "${Logger::class.simpleName}.kt") }
         .firstOrNull()
         ?.removeSuffix(".kt")
         ?.removeSuffix(".java")

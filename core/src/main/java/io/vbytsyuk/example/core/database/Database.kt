@@ -10,4 +10,5 @@ interface DatabaseProvider<out T> {
 
 interface DatabaseStorage<in T> {
     suspend fun saveData(data: T)
+    suspend fun clear()
 }

@@ -24,8 +24,8 @@ abstract class ListViewModel<T : Item>(
 
     fun reloadList() {
         _list.value = emptyList()
-        repository.clearState()
         viewModelScope.launch {
+            repository.clearState()
             repository.dataFlow()
                 .collectListToLiveData(_list)
         }

@@ -4,5 +4,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository<out T> {
     fun dataFlow(count: Int = 20): Flow<List<T>>
-    fun clearState()
+    suspend fun clearState()
 }
