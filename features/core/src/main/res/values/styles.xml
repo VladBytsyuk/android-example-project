@@ -1,0 +1,19 @@
+<resources>
+    <style name="TextItemHeader">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:alpha">1.0</item>
+    </style>
+
+    <style name="TextItemContent">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:alpha">0.52</item>
+    </style>
+
+    <style name="TextItemEmpty">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:alpha">0.71</item>
+    </style>
+</resources>

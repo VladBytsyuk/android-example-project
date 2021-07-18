@@ -38,7 +38,7 @@ class ApiDiModule(dependencies: Dependencies) :
         override val charactersApiProvider: CharactersApiProvider =
             MockCharactersApi(
                 value = listOf(
-                    Character(id = 1, name = "Thrall", species = "Orc", status = "Alive", gender = "Male", imageUrl = "", locationName = "Azeroth")
+                    Character(id = 1, name = "Thrall", species = "Orc", status = "Alive", gender = "Male", imageUrl = "http://wow.blizzwiki.ru/images/2/23/Thrall-WC3.jpg", locationName = "Azeroth")
                 )
             )
 

@@ -8,11 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="day_on_primary">#fdfdfb</color>
+    <color name="day_on_primary">#fafafa</color>
+    <color name="day_on_secondary">#fefefe</color>
     <color name="day_primary">#00b3ca</color>
     <color name="day_primary_variant">#01afca</color>
 
     <color name="night_on_primary">#171731</color>
+    <color name="night_on_secondary">#373751</color>
     <color name="night_primary_variant">#31486a</color>
     <color name="night_primary">#07adc3</color>
     <color name="secondary">#b9df72</color>
