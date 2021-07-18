@@ -1,10 +1,5 @@
 <resources>
     <string name="splash_screen">Rick &amp; Morty app</string>
     <string name="app_name">Android Example Project</string>
-    <string name="title_locations">Locations</string>
-    <string name="title_characters">Characters</string>
-    <string name="title_episodes">Episodes</string>
-    <string name="title_location_detail">Location Detail</string>
-    <string name="title_character_detail">Character Detail</string>
-    <string name="title_episode_detail">Episode Detail</string>
+    <string name="title_start">Start</string>
 </resources>

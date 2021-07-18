@@ -2,6 +2,7 @@ package io.vbytsyuk.example.android
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.navigation.NavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,6 +11,10 @@ import androidx.navigation.ui.setupWithNavController
 import io.vbytsyuk.example.android.databinding.ActivityMainBinding
 
 class MainActivity : BindingActivity<ActivityMainBinding>() {
+    private var _navController: NavController? = null
+    val navController: NavController get() = checkNotNull(_navController) {
+        "NavController does not initialized."
+    }
 
     override fun inflateBinding(inflater: LayoutInflater) =
         ActivityMainBinding.inflate(inflater)
@@ -22,14 +27,17 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
 
             val navView: BottomNavigationView = binding.navView
 
-            val navController = findNavController(R.id.nav_host_fragment_activity_main)
-            // Passing each menu ID as a set of Ids because each
-            // menu should be considered as top level destinations.
+            _navController = findNavController(R.id.nav_host_fragment_activity_main)
             val appBarConfiguration = AppBarConfiguration(
                 setOf(R.id.navigation_locations, R.id.navigation_characters, R.id.navigation_episodes)
             )
             setupActionBarWithNavController(navController, appBarConfiguration)
             navView.setupWithNavController(navController)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        navController.navigateUp()
+        return super.onSupportNavigateUp()
     }
 }

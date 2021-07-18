@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_locations"
+        android:id="@+id/locations_navigation"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/title_locations" />
 
     <item
-        android:id="@+id/navigation_characters"
+        android:id="@+id/characters_navigation"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/title_characters" />
 
     <item
-        android:id="@+id/navigation_episodes"
+        android:id="@+id/episodes_navigation"
         android:icon="@drawable/ic_baseline_movie_24"
         android:title="@string/title_episodes" />
 

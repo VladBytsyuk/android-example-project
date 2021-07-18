@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/episodes_navigation"
+    app:startDestination="@id/navigation_episodes">
+
+
+    <fragment
+        android:id="@+id/navigation_episodes"
+        android:name="io.vbytsyuk.example.episodes.list.EpisodesListFragment"
+        android:label="@string/title_episodes"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_navigation_episodes_to_navigation_episode_detail"
+            app:destination="@id/navigation_episode_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_episode_detail"
+        android:name="io.vbytsyuk.example.episodes.detail.EpisodeDetailFragment"
+        android:label="@string/title_episode_detail"
+        tools:layout="@layout/fragment_detail_episode" />
+</navigation>

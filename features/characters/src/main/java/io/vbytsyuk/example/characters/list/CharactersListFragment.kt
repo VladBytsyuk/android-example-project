@@ -7,6 +7,7 @@ import io.vbytsyuk.example.characters.R
 import io.vbytsyuk.example.core.ListAdapter
 import io.vbytsyuk.example.core.ListFragment
 import io.vbytsyuk.example.core.domain.Character
+import io.vbytsyuk.example.core.ext.navigate
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharactersListFragment : ListFragment<Character, CharactersListViewModel>() {
@@ -25,6 +26,9 @@ class CharactersListFragment : ListFragment<Character, CharactersListViewModel>(
                 .placeholder(R.drawable.ic_baseline_person_24)
                 .error(R.drawable.ic_baseline_person_24)
                 .into(img)
+        }
+        view.setOnClickListener {
+            view.navigate(R.id.action_navigation_characters_to_navigation_character_detail)
         }
     }
 }
