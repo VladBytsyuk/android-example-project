@@ -1,11 +1,8 @@
 package io.vbytsyuk.example.locations
 
 import io.vbytsyuk.example.core.di.DiModule
-import io.vbytsyuk.example.core.domain.Character
-import io.vbytsyuk.example.core.domain.Episode
-import io.vbytsyuk.example.core.domain.Location
-import io.vbytsyuk.example.core.repository.Repository
 import io.vbytsyuk.example.core.repository.domain.LocationsRepository
+import io.vbytsyuk.example.locations.list.LocationsListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

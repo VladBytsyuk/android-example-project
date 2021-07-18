@@ -1,8 +1,9 @@
-package io.vbytsyuk.example.characters
+package io.vbytsyuk.example.characters.list
 
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import io.vbytsyuk.example.characters.R
 import io.vbytsyuk.example.core.ListAdapter
 import io.vbytsyuk.example.core.ListFragment
 import io.vbytsyuk.example.core.domain.Character

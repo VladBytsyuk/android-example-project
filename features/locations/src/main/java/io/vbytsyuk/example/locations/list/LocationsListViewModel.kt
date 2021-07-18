@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.locations
+package io.vbytsyuk.example.locations.list
 
 import io.vbytsyuk.example.core.ListViewModel
 import io.vbytsyuk.example.core.domain.Location

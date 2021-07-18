@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.episodes
+package io.vbytsyuk.example.episodes.list
 
 import io.vbytsyuk.example.core.ListViewModel
 import io.vbytsyuk.example.core.domain.Episode

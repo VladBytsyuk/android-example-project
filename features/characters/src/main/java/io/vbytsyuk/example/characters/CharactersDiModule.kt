@@ -1,8 +1,7 @@
 package io.vbytsyuk.example.characters
 
+import io.vbytsyuk.example.characters.list.CharactersListViewModel
 import io.vbytsyuk.example.core.di.DiModule
-import io.vbytsyuk.example.core.domain.Character
-import io.vbytsyuk.example.core.repository.Repository
 import io.vbytsyuk.example.core.repository.domain.CharactersRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module

@@ -1,10 +1,8 @@
 package io.vbytsyuk.example.episodes
 
 import io.vbytsyuk.example.core.di.DiModule
-import io.vbytsyuk.example.core.domain.Character
-import io.vbytsyuk.example.core.domain.Episode
-import io.vbytsyuk.example.core.repository.Repository
 import io.vbytsyuk.example.core.repository.domain.EpisodesRepository
+import io.vbytsyuk.example.episodes.list.EpisodesListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

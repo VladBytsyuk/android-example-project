@@ -1,9 +1,10 @@
-package io.vbytsyuk.example.locations
+package io.vbytsyuk.example.locations.list
 
 import android.widget.TextView
 import io.vbytsyuk.example.core.ListAdapter
 import io.vbytsyuk.example.core.ListFragment
 import io.vbytsyuk.example.core.domain.Location
+import io.vbytsyuk.example.locations.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LocationsListFragment : ListFragment<Location, LocationsListViewModel>() {

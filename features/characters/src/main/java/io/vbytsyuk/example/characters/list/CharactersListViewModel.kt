@@ -1,4 +1,4 @@
-package io.vbytsyuk.example.characters
+package io.vbytsyuk.example.characters.list
 
 import io.vbytsyuk.example.core.ListViewModel
 import io.vbytsyuk.example.core.domain.Character

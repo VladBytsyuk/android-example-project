@@ -1,9 +1,10 @@
-package io.vbytsyuk.example.episodes
+package io.vbytsyuk.example.episodes.list
 
 import android.widget.TextView
 import io.vbytsyuk.example.core.ListAdapter
 import io.vbytsyuk.example.core.ListFragment
 import io.vbytsyuk.example.core.domain.Episode
+import io.vbytsyuk.example.episodes.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EpisodesListFragment : ListFragment<Episode, EpisodesListViewModel>() {

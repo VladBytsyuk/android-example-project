@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_locations"
-        android:name="io.vbytsyuk.example.locations.LocationsListFragment"
+        android:name="io.vbytsyuk.example.locations.list.LocationsListFragment"
         android:label="@string/title_locations"
-        tools:layout="@layout/fragment_locations" />
+        tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/navigation_characters"
-        android:name="io.vbytsyuk.example.characters.CharactersListFragment"
+        android:name="io.vbytsyuk.example.characters.list.CharactersListFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/navigation_episodes"
-        android:name="io.vbytsyuk.example.episodes.EpisodesListFragment"
+        android:name="io.vbytsyuk.example.episodes.list.EpisodesListFragment"
         android:label="@string/title_episodes"
-        tools:layout="@layout/fragment_episodes" />
+        tools:layout="@layout/fragment_list" />
 </navigation>
