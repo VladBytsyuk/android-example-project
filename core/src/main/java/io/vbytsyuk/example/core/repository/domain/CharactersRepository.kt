@@ -8,4 +8,4 @@ import io.vbytsyuk.example.core.repository.Repository
 import io.vbytsyuk.example.core.repository.RepositoryImpl
 
 class CharactersRepository(logger: Logger, database: CharactersDatabase, apiProvider: CharactersApiProvider) :
-    Repository<List<Character>> by RepositoryImpl(logger, database, apiProvider)
+    Repository<Character> by RepositoryImpl(logger, database, apiProvider)

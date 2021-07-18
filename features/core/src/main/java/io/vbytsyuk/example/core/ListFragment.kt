@@ -45,6 +45,6 @@ abstract class ListFragment<T : Item, VM : ListViewModel<T>> : BindingFragment<F
     }
 
     private fun setPullToRefreshListener() = bind { binding ->
-        binding.swipeRefreshLayout.setOnRefreshListener(listViewModel::updateList)
+        binding.swipeRefreshLayout.setOnRefreshListener(listViewModel::reloadList)
     }
 }

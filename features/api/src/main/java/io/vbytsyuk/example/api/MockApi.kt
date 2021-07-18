@@ -10,21 +10,21 @@ import io.vbytsyuk.example.core.domain.Location
 import kotlinx.coroutines.delay
 
 class MockLocationsApi(private val value: List<Location>) : LocationsApiProvider {
-    override suspend fun fetchData(): ApiResult<List<Location>> {
+    override suspend fun fetchData(from: Int, count: Int): ApiResult<List<Location>> {
         delay(500)
         return ApiResult.Success(value)
     }
 }
 
 class MockCharactersApi(private val value: List<Character>) : CharactersApiProvider {
-    override suspend fun fetchData(): ApiResult<List<Character>> {
+    override suspend fun fetchData(from: Int, count: Int): ApiResult<List<Character>> {
         delay(500)
         return ApiResult.Success(value)
     }
 }
 
 class MockEpisodesApi(private val value: List<Episode>) : EpisodesApiProvider {
-    override suspend fun fetchData(): ApiResult<List<Episode>> {
+    override suspend fun fetchData(from: Int, count: Int): ApiResult<List<Episode>> {
         delay(500)
         return ApiResult.Success(value)
     }
