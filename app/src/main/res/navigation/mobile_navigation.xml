@@ -9,17 +9,49 @@
         android:id="@+id/navigation_locations"
         android:name="io.vbytsyuk.example.locations.list.LocationsListFragment"
         android:label="@string/title_locations"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_navigation_locations_to_navigation_location_detail"
+            app:destination="@id/navigation_location_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_location_detail"
+        android:name="io.vbytsyuk.example.locations.detail.LocationDetailFragment"
+        android:label="@string/title_location_detail"
+        tools:layout="@layout/fragment_detail_location" />
 
     <fragment
         android:id="@+id/navigation_characters"
         android:name="io.vbytsyuk.example.characters.list.CharactersListFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_navigation_characters_to_navigation_character_detail"
+            app:destination="@id/navigation_character_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_character_detail"
+        android:name="io.vbytsyuk.example.characters.detail.CharacterDetailFragment"
+        android:label="@string/title_character_detail"
+        tools:layout="@layout/fragment_detail_character" />
+
 
     <fragment
         android:id="@+id/navigation_episodes"
         android:name="io.vbytsyuk.example.episodes.list.EpisodesListFragment"
         android:label="@string/title_episodes"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_navigation_episodes_to_navigation_episode_detail"
+            app:destination="@id/navigation_episode_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_episode_detail"
+        android:name="io.vbytsyuk.example.episodes.detail.EpisodeDetailFragment"
+        android:label="@string/title_episode_detail"
+        tools:layout="@layout/fragment_detail_episode" />
+
 </navigation>
