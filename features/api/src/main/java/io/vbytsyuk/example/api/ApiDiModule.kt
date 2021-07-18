@@ -1,11 +1,13 @@
 package io.vbytsyuk.example.api
 
+import io.vbytsyuk.example.api.providers.CharactersApiProviderImpl
+import io.vbytsyuk.example.api.providers.EpisodesApiProviderImpl
+import io.vbytsyuk.example.api.providers.LocationsApiProviderImpl
+import io.vbytsyuk.example.api.retrofit.RetrofitProvider
 import io.vbytsyuk.example.core.api.domain.CharactersApiProvider
 import io.vbytsyuk.example.core.api.domain.EpisodesApiProvider
 import io.vbytsyuk.example.core.api.domain.LocationsApiProvider
 import io.vbytsyuk.example.core.di.DiModule
-import io.vbytsyuk.example.core.domain.Character
-import io.vbytsyuk.example.core.domain.Location
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -21,29 +23,17 @@ class ApiDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
+        private val retrofitProvider: RetrofitProvider
+            get() = RetrofitProvider(url = "https://rickandmortyapi.com/")
+
         override val locationsApiProvider: LocationsApiProvider =
-            MockLocationsApi(
-                value = listOf(
-                    Location(id = 1, name = "Home", type = "Building", dimension = "Earth"),
-                    Location(id = 2, name = "Work", type = "Building", dimension = "Earth"),
-                    Location(id = 3, name = "Diagon alley", type = "Street", dimension = "Harry Potter universe"),
-                    Location(id = 4, name = "Tavern", type = "Building", dimension = "Earth"),
-                    Location(id = 5, name = "Goldshire", type = "Town", dimension = "Azeroth"),
-                    Location(id = 6, name = "Blackrock", type = "Rock", dimension = "Azeroth"),
-                    Location(id = 7, name = "Konoha", type = "Town", dimension = "Naruto universe"),
-                    Location(id = 8, name = "Omashu", type = "Town", dimension = "The last airbender universe"),
-                )
-            )
+            LocationsApiProviderImpl(retrofitProvider)
 
         override val charactersApiProvider: CharactersApiProvider =
-            MockCharactersApi(
-                value = listOf(
-                    Character(id = 1, name = "Thrall", species = "Orc", status = "Alive", gender = "Male", imageUrl = "http://wow.blizzwiki.ru/images/2/23/Thrall-WC3.jpg", locationName = "Azeroth")
-                )
-            )
+            CharactersApiProviderImpl(retrofitProvider)
 
         override val episodesApiProvider: EpisodesApiProvider =
-            MockEpisodesApi(value = emptyList())
+            EpisodesApiProviderImpl(retrofitProvider)
     }
 
     companion object {

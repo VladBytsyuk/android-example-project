@@ -4,5 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 
-suspend fun <T> Flow<T>.collectToLiveData(liveData: MutableLiveData<T>) =
-    collect { liveData.value = it }
+suspend fun <T> Flow<List<T>>.collectListToLiveData(liveData: MutableLiveData<List<T>>) =
+    collect { newList ->
+        liveData.value = liveData.value?.let { it + newList } ?: newList
+    }

@@ -2,7 +2,7 @@ package io.vbytsyuk.example.core
 
 import androidx.lifecycle.*
 import io.vbytsyuk.example.core.domain.Item
-import io.vbytsyuk.example.core.ext.collectToLiveData
+import io.vbytsyuk.example.core.ext.collectListToLiveData
 import io.vbytsyuk.example.core.repository.Repository
 import kotlinx.coroutines.launch
 
@@ -18,15 +18,16 @@ abstract class ListViewModel<T : Item>(
     fun updateList() {
         viewModelScope.launch {
             repository.dataFlow()
-                .collectToLiveData(_list)
+                .collectListToLiveData(_list)
         }
     }
 
     fun reloadList() {
+        _list.value = emptyList()
         repository.clearState()
         viewModelScope.launch {
             repository.dataFlow()
-                .collectToLiveData(_list)
+                .collectListToLiveData(_list)
         }
     }
 }

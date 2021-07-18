@@ -2,7 +2,9 @@ ext {
     versions = [
             "kotlin": "1.5.0",
             "koin": "3.1.2",
-            "glide": "4.12.0"
+            "glide": "4.12.0",
+            "retrofit": "2.9.0",
+            "moshi": "1.12.0",
     ]
 
     kotlin = [
@@ -38,6 +40,17 @@ ext {
 
     okhttp = [
             "core": "com.squareup.okhttp3:okhttp:3.14.0",
+    ]
+
+    retrofit = [
+            "core": "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            "logging_interceptor": "com.squareup.okhttp3:logging-interceptor:4.2.1",
+            "moshi_converter": "com.squareup.retrofit2:converter-moshi:2.4.0",
+    ]
+
+    moshi = [
+            "core": "com.squareup.moshi:moshi:${versions.moshi}",
+            "codegen": "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
     ]
 
     test = [

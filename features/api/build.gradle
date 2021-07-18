@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'kotlin-kapt'
 }
 
 apply from: '../../dependencies.gradle'
@@ -16,6 +17,11 @@ dependencies {
     implementation kotlin.stdlib
     implementation kotlin.coroutines
     implementation koin.core
+    implementation moshi.core
+    kapt moshi.codegen
+    implementation retrofit.core
+    implementation retrofit.logging_interceptor
+    implementation retrofit.moshi_converter
 
     // Unit test
     testImplementation test.junit

@@ -4,10 +4,11 @@ import android.util.Log
 import io.vbytsyuk.example.core.api.ApiProvider
 import io.vbytsyuk.example.core.api.ApiResult
 import io.vbytsyuk.example.core.database.Database
+import io.vbytsyuk.example.core.domain.list.ListData
 import io.vbytsyuk.example.core.repository.RepositoryImpl
 import kotlinx.coroutines.delay
 
-fun <T> MockRepository(value: List<T>) = RepositoryImpl(
+fun <T> MockRepository(value: ListData<T>) = RepositoryImpl(
     logger = object : Logger {
         override val tag: String
             get() = "Mock"
@@ -43,12 +44,12 @@ fun <T> MockRepository(value: List<T>) = RepositoryImpl(
     database = object : Database<List<T>> {
         override suspend fun loadData(): List<T> {
             delay(200)
-            return value
+            return value.list
         }
         override suspend fun saveData(data: List<T>) = Unit
     },
-    apiProvider = object : ApiProvider<List<T>> {
-        override suspend fun fetchData(from: Int, count: Int): ApiResult<List<T>> {
+    apiProvider = object : ApiProvider<ListData<T>> {
+        override suspend fun fetchData(page: Int): ApiResult<ListData<T>> {
             delay(500)
             return ApiResult.Success(value)
         }

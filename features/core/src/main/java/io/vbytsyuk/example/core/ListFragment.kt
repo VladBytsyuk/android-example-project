@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import io.vbytsyuk.example.core.databinding.FragmentListBinding
 import io.vbytsyuk.example.core.domain.Item
 import io.vbytsyuk.example.core.ext.visible
@@ -35,6 +36,15 @@ abstract class ListFragment<T : Item, VM : ListViewModel<T>> : BindingFragment<F
     private fun setRecyclerView() = bind { binding ->
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = listAdapter
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    listViewModel.updateList()
+                }
+            }
+        })
     }
 
     private fun showList(list: List<T>) = bind { binding ->
