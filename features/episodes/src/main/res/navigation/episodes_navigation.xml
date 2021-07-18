@@ -13,12 +13,30 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_navigation_episodes_to_navigation_episode_detail"
-            app:destination="@id/navigation_episode_detail" />
+            app:destination="@id/navigation_episode_detail"  >
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="airDate"
+                app:argType="string" />
+            <argument android:name="episodeCode"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/navigation_episode_detail"
         android:name="io.vbytsyuk.example.episodes.detail.EpisodeDetailFragment"
         android:label="@string/title_episode_detail"
-        tools:layout="@layout/fragment_detail_episode" />
+        tools:layout="@layout/fragment_detail_episode" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="airDate"
+            app:argType="string" />
+        <argument android:name="episodeCode"
+            app:argType="string" />
+    </fragment>
 </navigation>

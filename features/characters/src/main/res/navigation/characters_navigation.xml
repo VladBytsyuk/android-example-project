@@ -12,13 +12,47 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_navigation_characters_to_navigation_character_detail"
-            app:destination="@id/navigation_character_detail" />
+            app:destination="@id/navigation_character_detail">
+            <argument android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="species"
+                app:argType="string" />
+            <argument
+                android:name="status"
+                app:argType="string" />
+            <argument android:name="gender"
+                app:argType="string" />
+            <argument
+                android:name="location"
+                app:argType="string" />
+            <argument
+                android:name="imageUrl"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/navigation_character_detail"
         android:name="io.vbytsyuk.example.characters.detail.CharacterDetailFragment"
         android:label="@string/title_character_detail"
-        tools:layout="@layout/fragment_detail_character" />
+        tools:layout="@layout/fragment_detail_character" >
+        <argument android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="species"
+            app:argType="string" />
+        <argument
+            android:name="status"
+            app:argType="string" />
+        <argument android:name="gender"
+            app:argType="string" />
+        <argument
+            android:name="location"
+            app:argType="string" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -17,7 +17,12 @@ class EpisodesListFragment : ListFragment<Episode, EpisodesListViewModel>() {
         view.findViewById<TextView>(R.id.tvAirDate).text = episode.airDate
         view.findViewById<TextView>(R.id.tvEpisode).text = episode.episodeCode
         view.setOnClickListener {
-            view.navigate(R.id.action_navigation_episodes_to_navigation_episode_detail)
+            val action = EpisodesListFragmentDirections.actionNavigationEpisodesToNavigationEpisodeDetail(
+                name = episode.name,
+                airDate = episode.airDate,
+                episodeCode = episode.episodeCode
+            )
+            view.navigate(action)
         }
     }
 }

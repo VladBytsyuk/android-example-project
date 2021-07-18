@@ -14,7 +14,9 @@ class CharactersListFragment : ListFragment<Character, CharactersListViewModel>(
 
     override val listViewModel: CharactersListViewModel by viewModel()
 
-    override val adapterParams = ListAdapter.Params<Character>(layoutId = R.layout.adapter_item_character) { character, view ->
+    override val adapterParams = ListAdapter.Params<Character>(
+        layoutId = R.layout.adapter_item_character
+    ) { character, view ->
         view.findViewById<TextView>(R.id.tvName).text = character.name
         view.findViewById<TextView>(R.id.tvSpecies).text = character.species
         view.findViewById<TextView>(R.id.tvStatus).text = character.status
@@ -28,7 +30,15 @@ class CharactersListFragment : ListFragment<Character, CharactersListViewModel>(
                 .into(img)
         }
         view.setOnClickListener {
-            view.navigate(R.id.action_navigation_characters_to_navigation_character_detail)
+            val action = CharactersListFragmentDirections.actionNavigationCharactersToNavigationCharacterDetail(
+                name = character.name,
+                species = character.species,
+                status = character.status,
+                gender = character.gender,
+                location = character.locationName,
+                imageUrl = character.imageUrl
+            )
+            view.navigate(action)
         }
     }
 }
