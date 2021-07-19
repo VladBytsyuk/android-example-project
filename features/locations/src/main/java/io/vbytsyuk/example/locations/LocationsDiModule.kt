@@ -19,8 +19,8 @@ class LocationsDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val locationsListViewModel: LocationsListViewModel =
-            LocationsListViewModel(dependencies.locationsRepository)
+        override val locationsListViewModel: LocationsListViewModel
+            get() = LocationsListViewModel(dependencies.locationsRepository)
     }
 
     companion object {

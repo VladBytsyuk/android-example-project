@@ -1,8 +1,8 @@
 package io.vbytsyuk.example.api
 
-import io.vbytsyuk.example.api.providers.CharactersApiProviderImpl
-import io.vbytsyuk.example.api.providers.EpisodesApiProviderImpl
-import io.vbytsyuk.example.api.providers.LocationsApiProviderImpl
+import io.vbytsyuk.example.api.providers.RetrofitCharactersApiProvider
+import io.vbytsyuk.example.api.providers.RetrofitEpisodesApiProvider
+import io.vbytsyuk.example.api.providers.RetrofitLocationsApiProvider
 import io.vbytsyuk.example.api.retrofit.RetrofitProvider
 import io.vbytsyuk.example.core.api.domain.CharactersApiProvider
 import io.vbytsyuk.example.core.api.domain.EpisodesApiProvider
@@ -26,22 +26,22 @@ class ApiDiModule(dependencies: Dependencies) :
         private val retrofitProvider: RetrofitProvider
             get() = RetrofitProvider(url = "https://rickandmortyapi.com/")
 
-        override val locationsApiProvider: LocationsApiProvider =
-            LocationsApiProviderImpl(retrofitProvider)
+        override val locationsApiProvider: LocationsApiProvider
+            get() = RetrofitLocationsApiProvider(retrofitProvider)
 
-        override val charactersApiProvider: CharactersApiProvider =
-            CharactersApiProviderImpl(retrofitProvider)
+        override val charactersApiProvider: CharactersApiProvider
+            get() = RetrofitCharactersApiProvider(retrofitProvider)
 
-        override val episodesApiProvider: EpisodesApiProvider =
-            EpisodesApiProviderImpl(retrofitProvider)
+        override val episodesApiProvider: EpisodesApiProvider
+            get() = RetrofitEpisodesApiProvider(retrofitProvider)
     }
 
     companion object {
         val koinModule: Module = module {
             single { ApiDiModule(dependencies = object : Dependencies { }) }
-            single { get<ApiDiModule>().api.locationsApiProvider }
-            single { get<ApiDiModule>().api.charactersApiProvider }
-            single { get<ApiDiModule>().api.episodesApiProvider }
+            factory { get<ApiDiModule>().api.locationsApiProvider }
+            factory { get<ApiDiModule>().api.charactersApiProvider }
+            factory { get<ApiDiModule>().api.episodesApiProvider }
         }
     }
 }

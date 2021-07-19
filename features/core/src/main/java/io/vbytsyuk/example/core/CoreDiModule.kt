@@ -36,14 +36,26 @@ class CoreDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val locationsRepository: LocationsRepository =
-            LocationsRepository(dependencies.logger, dependencies.locationsDatabase, dependencies.locationsApiProvider)
+        override val locationsRepository: LocationsRepository
+            get() = LocationsRepository(
+                dependencies.logger,
+                dependencies.locationsDatabase,
+                dependencies.locationsApiProvider
+            )
 
-        override val charactersRepository: CharactersRepository =
-            CharactersRepository(dependencies.logger, dependencies.charactersDatabase, dependencies.charactersApiProvider)
+        override val charactersRepository: CharactersRepository
+            get() = CharactersRepository(
+                dependencies.logger,
+                dependencies.charactersDatabase,
+                dependencies.charactersApiProvider
+            )
 
-        override val episodesRepository: EpisodesRepository =
-            EpisodesRepository(dependencies.logger, dependencies.episodesDatabase, dependencies.episodesApiProvider)
+        override val episodesRepository: EpisodesRepository
+            get() = EpisodesRepository(
+                dependencies.logger,
+                dependencies.episodesDatabase,
+                dependencies.episodesApiProvider
+            )
     }
 
     companion object {
@@ -64,9 +76,9 @@ class CoreDiModule(dependencies: Dependencies) :
                     }
                 )
             }
-            single { get<CoreDiModule>().api.locationsRepository }
-            single { get<CoreDiModule>().api.charactersRepository }
-            single { get<CoreDiModule>().api.episodesRepository }
+            factory { get<CoreDiModule>().api.locationsRepository }
+            factory { get<CoreDiModule>().api.charactersRepository }
+            factory { get<CoreDiModule>().api.episodesRepository }
         }
     }
 }

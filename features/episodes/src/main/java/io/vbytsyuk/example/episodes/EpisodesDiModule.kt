@@ -19,8 +19,8 @@ class EpisodesDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val episodesListViewModel: EpisodesListViewModel =
-            EpisodesListViewModel(dependencies.charactersRepository)
+        override val episodesListViewModel: EpisodesListViewModel
+            get() = EpisodesListViewModel(dependencies.charactersRepository)
     }
 
     companion object {

@@ -8,7 +8,7 @@ import io.vbytsyuk.example.core.api.domain.EpisodesApiProvider
 import io.vbytsyuk.example.core.domain.Episode
 import io.vbytsyuk.example.core.domain.list.ListData
 
-internal class EpisodesApiProviderImpl(
+internal class RetrofitEpisodesApiProvider(
     private val retrofitProvider: RetrofitProvider
 ) : EpisodesApiProvider {
     private val retrofitApi: RetrofitApi get() = retrofitProvider.provideRetrofit()

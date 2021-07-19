@@ -19,8 +19,8 @@ class CharactersDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val charactersListViewModel: CharactersListViewModel =
-            CharactersListViewModel(repository = dependencies.charactersRepository)
+        override val charactersListViewModel: CharactersListViewModel
+            get() = CharactersListViewModel(repository = dependencies.charactersRepository)
     }
 
     companion object {

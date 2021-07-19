@@ -9,7 +9,6 @@ import io.vbytsyuk.example.core.domain.Location
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-
 class LogDiModule(dependencies: Dependencies) :
     DiModule<LogDiModule.Dependencies, LogDiModule.Api>(dependencies) {
 
@@ -20,13 +19,14 @@ class LogDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val logger = AndroidLogger()
+        override val logger: Logger
+            get() = AndroidLogger()
     }
 
     companion object {
         val koinModule: Module = module {
             single { LogDiModule(dependencies = object : Dependencies { }) }
-            single { get<LogDiModule>().api.logger }
+            factory { get<LogDiModule>().api.logger }
         }
     }
 }

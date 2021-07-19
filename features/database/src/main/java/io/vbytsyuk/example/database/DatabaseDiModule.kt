@@ -11,7 +11,6 @@ import io.vbytsyuk.example.database.providers.LocationsRoomDatabase
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-
 class DatabaseDiModule(dependencies: Dependencies) :
     DiModule<DatabaseDiModule.Dependencies, DatabaseDiModule.Api>(dependencies) {
 
@@ -26,12 +25,12 @@ class DatabaseDiModule(dependencies: Dependencies) :
     }
 
     override val api: Api = object : Api {
-        override val locationsDatabase: LocationsDatabase =
-            LocationsRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
-        override val charactersDatabase: CharactersDatabase =
-            CharactersRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
-        override val episodesDatabase: EpisodesDatabase =
-            EpisodesRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
+        override val locationsDatabase: LocationsDatabase
+            get() = LocationsRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
+        override val charactersDatabase: CharactersDatabase
+            get() = CharactersRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
+        override val episodesDatabase: EpisodesDatabase
+            get() = EpisodesRoomDatabase(dependencies.applicationContext, DATABASE_NAME)
     }
 
     companion object {
@@ -44,9 +43,9 @@ class DatabaseDiModule(dependencies: Dependencies) :
                     }
                 )
             }
-            single { get<DatabaseDiModule>().api.locationsDatabase }
-            single { get<DatabaseDiModule>().api.charactersDatabase }
-            single { get<DatabaseDiModule>().api.episodesDatabase }
+            factory { get<DatabaseDiModule>().api.locationsDatabase }
+            factory { get<DatabaseDiModule>().api.charactersDatabase }
+            factory { get<DatabaseDiModule>().api.episodesDatabase }
         }
     }
 }
