@@ -1,16 +1,11 @@
 package io.vbytsyuk.example.locations.list
 
 import android.widget.TextView
-import androidx.navigation.ActionOnlyNavDirections
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import io.vbytsyuk.example.core.ListAdapter
-import io.vbytsyuk.example.core.ListFragment
+import io.vbytsyuk.example.core.list.ListAdapter
+import io.vbytsyuk.example.core.list.ListFragment
 import io.vbytsyuk.example.core.domain.Location
 import io.vbytsyuk.example.core.ext.navigate
 import io.vbytsyuk.example.locations.R
-import io.vbytsyuk.example.locations.detail.LocationDetailFragment
-import io.vbytsyuk.example.locations.detail.LocationDetailFragmentArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LocationsListFragment : ListFragment<Location, LocationsListViewModel>() {

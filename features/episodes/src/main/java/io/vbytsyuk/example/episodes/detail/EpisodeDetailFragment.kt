@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import io.vbytsyuk.example.core.ext.DetailFragment
+import io.vbytsyuk.example.core.DetailFragment
 import io.vbytsyuk.example.episodes.databinding.FragmentDetailEpisodeBinding
 
 class EpisodeDetailFragment : DetailFragment<FragmentDetailEpisodeBinding>() {

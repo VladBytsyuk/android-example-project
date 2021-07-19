@@ -8,7 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import io.vbytsyuk.example.characters.R
 import io.vbytsyuk.example.characters.databinding.FragmentDetailCharacterBinding
-import io.vbytsyuk.example.core.ext.DetailFragment
+import io.vbytsyuk.example.core.DetailFragment
 
 class CharacterDetailFragment : DetailFragment<FragmentDetailCharacterBinding>() {
     private val args: CharacterDetailFragmentArgs by navArgs()

@@ -47,7 +47,6 @@ dependencies {
     implementation project(":features:log")
     implementation project(":features:database")
     implementation project(":features:api")
-    implementation project(":features")
 
     implementation kotlin.stdlib
     implementation kotlin.coroutines

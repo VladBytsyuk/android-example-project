@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 
-class RepositoryImpl<out T>(
+internal class RepositoryImpl<out T>(
     private val logger: Logger,
     private val database: Database<List<T>>,
     private val apiProvider: ApiProvider<ListData<T>>,

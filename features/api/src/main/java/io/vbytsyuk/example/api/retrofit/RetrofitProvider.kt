@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 internal class RetrofitProvider(
     private val url: String
 ) {
-    inline fun <reified T> provideRetrofit(): T = Retrofit.Builder()
+    inline fun <reified T> provideRetrofitApi(): T = Retrofit.Builder()
         .baseUrl(url)
         .client(okhttpClient)
         .addConverterFactory(MoshiConverterFactory.create())

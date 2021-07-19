@@ -9,7 +9,6 @@ import io.vbytsyuk.example.database.entities.CharacterEntity
 import io.vbytsyuk.example.database.entities.EpisodeEntity
 import io.vbytsyuk.example.database.entities.LocationEntity
 
-
 @Database(
     entities = [LocationEntity::class, CharacterEntity::class, EpisodeEntity::class],
     version = 1

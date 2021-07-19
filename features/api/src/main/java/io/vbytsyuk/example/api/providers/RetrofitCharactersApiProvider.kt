@@ -11,7 +11,7 @@ import io.vbytsyuk.example.core.domain.list.ListData
 internal class RetrofitCharactersApiProvider(
     private val retrofitProvider: RetrofitProvider
 ) : CharactersApiProvider {
-    private val retrofitApi: RetrofitApi get() = retrofitProvider.provideRetrofit()
+    private val retrofitApi: RetrofitApi get() = retrofitProvider.provideRetrofitApi()
 
     override suspend fun fetchData(page: Int): ApiResult<ListData<Character>> =
         makeApiCall { retrofitApi.fetchCharacters(page) }
