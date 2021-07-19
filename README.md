@@ -21,34 +21,34 @@ An Android module. This is an entry point into app.
 It contains splash screen, main activity & start fragment.
 `:app` module configures DI and app navigation.
 
-#### `:fetures:location`
+#### `:features:location` module
 An Android feature module. 
 Contains all Location specific screens.
 
-#### `:fetures:episodes`
+#### `:features:episodes` module
 An Android feature module. 
 Contains all Episode specific screens.
 
-#### `:fetures:charcters`
+#### `:features:charcters` module
 An Android feature module. 
 Contains all Character specific screens.
 
-#### `:fetures:core`
+#### `:features:core` module
 An Android module. 
 Contains all common UI for feature modules.
 
-#### `:fetures:log`
+#### `:features:log` module
 An Android module. 
 Contains implementation of `Logger` interface from `:core` module with Android `Log` class.
 
-#### `:features:database`
+#### `:features:database` module
 An Android module. 
 Contains implementations of `Database` interface from `:core` module with Jetpack Room.
 
-#### `:features:api`
+#### `:features:api` module
 A JVM module.
 Contains implementations of `ApiProvider` interface from `:core` module with Retrofit.
 
-#### `:core`
+#### `:core` module
 A JVM module.
 Provides domain classes, interfaces for other modules and implementation of `Repository` interface.
