@@ -21,7 +21,7 @@ An Android module. This is an entry point into app.
 It contains splash screen, main activity & start fragment.
 `:app` module configures DI and app navigation.
 
-#### `:features:location` module
+#### `:features:locations` module
 An Android feature module. 
 Contains all Location specific screens.
 
